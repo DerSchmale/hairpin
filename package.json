@@ -1,0 +1,34 @@
+{
+  "name": "@derschmale/hairpin",
+  "version": "0.0.1",
+  "main": "build/hairpin.js",
+  "module": "build/hairpin.module.js",
+  "files": [
+    "build/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DerSchmale/hairpin.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "docs": "typedoc --out ./docs/ ./src/ --mode file"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "rollup": "^2.76.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.32.1",
+    "typedoc": "^0.23.7",
+    "typescript": "^4.7.4"
+  },
+  "keywords": [
+    "splines",
+    "curves",
+    "geometry"
+  ]
+}
