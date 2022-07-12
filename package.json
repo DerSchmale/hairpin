@@ -1,6 +1,6 @@
 {
   "name": "@derschmale/hairpin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./build/hairpin.js",
   "module": "./build/hairpin.module.js",
   "types": "./build/types/main.d.ts",
