@@ -1,8 +1,9 @@
 {
   "name": "@derschmale/hairpin",
   "version": "0.0.1",
-  "main": "build/hairpin.js",
-  "module": "build/hairpin.module.js",
+  "main": "./build/hairpin.js",
+  "module": "./build/hairpin.module.js",
+  "types": "./build/types/main.d.ts",
   "files": [
     "build/**/*",
     "README.md",

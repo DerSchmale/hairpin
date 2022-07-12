@@ -1,5 +1,5 @@
 import { Vector } from "../types";
-import { copy, distanceSqr } from "../utils/vector";
+import { copy } from "../utils/vector";
 
 const t0 = [];
 const t1 = [];
@@ -109,5 +109,6 @@ export abstract class Spline
     }
 
     protected abstract _getTangent(index: number, tgt: Vector);
+
     protected abstract _estimateTime(from: Vector, to: Vector): number;
 }
