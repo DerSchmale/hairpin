@@ -10,6 +10,7 @@ export declare abstract class Spline {
      */
     addPoint(p: Vector, time?: number): void;
     get points(): Vector[];
+    get length(): number;
     evaluate(x: number, tgt?: Vector): Vector;
     protected abstract _getTangent(index: number, tgt: Vector): any;
     protected abstract _estimateTime(from: Vector, to: Vector): number;

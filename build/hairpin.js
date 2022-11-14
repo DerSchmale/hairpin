@@ -221,24 +221,31 @@ var TYMP = (function (exports) {
             enumerable: false,
             configurable: true
         });
+        Object.defineProperty(Spline.prototype, "length", {
+            get: function () {
+                return this._knots[this._knots.length - 1];
+            },
+            enumerable: false,
+            configurable: true
+        });
         Spline.prototype.evaluate = function (x, tgt) {
             var points = this._points;
             var knots = this._knots;
             var len = points.length;
-            var duration = knots[len - 1];
+            var curveLen = knots[len - 1];
             var loop = this.loop;
             if (x < 0.0 && !loop) {
                 copy(points[0], tgt);
                 return tgt;
             }
-            if (x >= duration && !loop) {
+            if (x >= curveLen && !loop) {
                 copy(points[len - 1], tgt);
                 return tgt;
             }
-            while (x >= duration)
-                x -= duration;
+            while (x >= curveLen)
+                x -= curveLen;
             while (x < 0.0)
-                x += duration;
+                x += curveLen;
             tgt = tgt !== null && tgt !== void 0 ? tgt : [];
             var i0 = 0;
             // TODO: Could probably do a binary search?

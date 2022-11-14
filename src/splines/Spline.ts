@@ -53,12 +53,17 @@ export abstract class Spline
         return this._points;
     }
 
+    get length(): number
+    {
+        return this._knots[this._knots.length - 1]
+    }
+
     evaluate(x: number, tgt?: Vector): Vector
     {
         const points = this._points;
         const knots = this._knots;
         const len = points.length;
-        const duration = knots[len - 1];
+        const curveLen = knots[len - 1];
         const loop = this.loop;
 
         if (x < 0.0 && !loop) {
@@ -66,15 +71,15 @@ export abstract class Spline
             return tgt;
         }
 
-        if (x >= duration && !loop) {
+        if (x >= curveLen && !loop) {
             copy(points[len - 1], tgt);
             return tgt;
         }
 
-        while (x >= duration)
-            x -= duration;
+        while (x >= curveLen)
+            x -= curveLen;
         while (x < 0.0)
-            x += duration;
+            x += curveLen;
 
         tgt = tgt ?? [];
 
